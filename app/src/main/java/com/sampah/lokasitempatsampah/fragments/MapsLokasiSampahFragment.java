@@ -16,8 +16,8 @@ public class MapsLokasiSampahFragment extends Fragment {
     public MapsLokasiSampahFragment() {
     }
 
-    public static LaporanMasyarakatFragment newInstance() {
-        return new LaporanMasyarakatFragment();
+    public static MapsLokasiSampahFragment newInstance() {
+        return new MapsLokasiSampahFragment();
     }
 
     @Override

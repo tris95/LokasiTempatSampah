@@ -9,6 +9,18 @@
     <string name="title_laporan">Laporan</string>
     <string name="title_profil">Profil</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="about">Lokasi Tempat Sampah - Kota Palembang merupakan program tugas akhir S1 Sistem Informasi Universitas Bina Darma yang dibuat oleh Doni pada 2018.
+						\n\email : doniapriansyah@yahoo.co.id
+
+						\n\nDinas Lingkungan Hidup dan Kebersihan Kota Palembang
+                        \n\Jl. Sukarela No.129 A, Sukarami, Kota Palembang, Sumatera Selatan 30153</string>
+    <string name="edit_profil">Edit Profil</string>
+    <string name="data_akun">Data Akun</string>
+    <string name="nama">Nama</string>
+    <string name="nomor_ktp">Nomor KTP</string>
+    <string name="alamat_email">Alamat email</string>
+    <string name="nomor_hp">Nomor HP</string>
+    <string name="alamat">Alamat</string>
+    <string name="profil_kabupaten">Profil Muara Enim</string>
 </resources>
