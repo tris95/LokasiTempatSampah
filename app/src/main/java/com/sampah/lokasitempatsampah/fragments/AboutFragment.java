@@ -10,14 +10,13 @@ import android.view.ViewGroup;
 
 import com.sampah.lokasitempatsampah.R;
 
-public class ProfileFragment extends Fragment {
+public class AboutFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
 
-    public ProfileFragment() {
+    public AboutFragment() {
     }
-
-    public static LaporanMasyarakatFragment newInstance() {
-        return new LaporanMasyarakatFragment();
+    public static AboutFragment newInstance() {
+        return new AboutFragment();
     }
 
     @Override
@@ -28,7 +27,7 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        View view = inflater.inflate(R.layout.fragment_about, container, false);
 
 
         return view;
@@ -43,7 +42,12 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-
+        if (context instanceof OnFragmentInteractionListener) {
+            mListener = (OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
     }
 
     @Override

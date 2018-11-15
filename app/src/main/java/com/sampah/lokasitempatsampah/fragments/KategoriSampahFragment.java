@@ -10,14 +10,14 @@ import android.view.ViewGroup;
 
 import com.sampah.lokasitempatsampah.R;
 
-public class ProfileFragment extends Fragment {
+public class KategoriSampahFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
 
-    public ProfileFragment() {
+    public KategoriSampahFragment() {
     }
 
-    public static LaporanMasyarakatFragment newInstance() {
-        return new LaporanMasyarakatFragment();
+    public static KategoriSampahFragment newInstance() {
+        return new KategoriSampahFragment();
     }
 
     @Override
@@ -28,7 +28,7 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        View view = inflater.inflate(R.layout.fragment_kategori_sampah, container, false);
 
 
         return view;
