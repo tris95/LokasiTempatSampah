@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Lokasi Tempat Sampah</string>
+    <string name="dinas">DINAS LINGKUNGAN HIDUP DAN KEBERSIHAN</string>
+    <string name="kabkot">KOTA PALEMBANG</string>
+    <string name="title_activity_maps">Maps</string>
+    <string name="title_home">Home</string>
+    <string name="title_kontak">Kontak</string>
+    <string name="title_event">Event</string>
+    <string name="title_laporan">Laporan</string>
+    <string name="title_profil">Profil</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
