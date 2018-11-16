@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import com.sampah.lokasitempatsampah.R;
 
 public class HomeFragment extends Fragment {
-    private OnFragmentInteractionListener mListener;
     public HomeFragment() {
     }
     public static HomeFragment newInstance() {
@@ -35,11 +34,6 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
 
     @Override
     public void onAttach(Context context) {
@@ -50,9 +44,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
     }
-    public interface OnFragmentInteractionListener {
-        void onFragmentInteraction(Uri uri);
-    }
+
 }

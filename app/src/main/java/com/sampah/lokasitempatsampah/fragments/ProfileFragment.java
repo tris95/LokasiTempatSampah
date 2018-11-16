@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import com.sampah.lokasitempatsampah.R;
 
 public class ProfileFragment extends Fragment {
-    private OnFragmentInteractionListener mListener;
 
     public ProfileFragment() {
     }
@@ -35,12 +34,6 @@ public class ProfileFragment extends Fragment {
         return view;
     }
 
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -50,10 +43,6 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
     }
 
-    public interface OnFragmentInteractionListener {
-        void onFragmentInteraction(Uri uri);
-    }
 }

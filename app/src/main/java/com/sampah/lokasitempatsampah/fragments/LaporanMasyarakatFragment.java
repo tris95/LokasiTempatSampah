@@ -3,6 +3,7 @@ package com.sampah.lokasitempatsampah.fragments;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +12,6 @@ import android.view.ViewGroup;
 import com.sampah.lokasitempatsampah.R;
 
 public class LaporanMasyarakatFragment extends Fragment {
-    private OnFragmentInteractionListener mListener;
 
     public LaporanMasyarakatFragment() {
     }
@@ -26,7 +26,7 @@ public class LaporanMasyarakatFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_laporan_masyarakat, container, false);
 
@@ -34,11 +34,6 @@ public class LaporanMasyarakatFragment extends Fragment {
         return view;
     }
 
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
 
     @Override
     public void onAttach(Context context) {
@@ -49,10 +44,6 @@ public class LaporanMasyarakatFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
     }
 
-    public interface OnFragmentInteractionListener {
-        void onFragmentInteraction(Uri uri);
-    }
 }

@@ -13,8 +13,6 @@ import com.sampah.lokasitempatsampah.R;
 
 public class DaftarLaporanFragment extends Fragment {
 
-    private OnFragmentInteractionListener mListener;
-
     public DaftarLaporanFragment() {
     }
     public static DaftarLaporanFragment newInstance() {
@@ -34,11 +32,7 @@ public class DaftarLaporanFragment extends Fragment {
         return view;
     }
 
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
+
 
     @Override
     public void onAttach(Context context) {
@@ -49,10 +43,7 @@ public class DaftarLaporanFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
     }
 
-    public interface OnFragmentInteractionListener {
-        void onFragmentInteraction(Uri uri);
-    }
+    
 }

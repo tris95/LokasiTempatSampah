@@ -12,8 +12,6 @@ import com.sampah.lokasitempatsampah.R;
 
 public class DaftarTempatSampahFragment extends Fragment {
 
-    private OnFragmentInteractionListener mListener;
-
     public DaftarTempatSampahFragment() {
     }
     public static DaftarTempatSampahFragment newInstance() {
@@ -33,11 +31,7 @@ public class DaftarTempatSampahFragment extends Fragment {
         return view;
     }
 
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
+
 
     @Override
     public void onAttach(Context context) {
@@ -48,10 +42,7 @@ public class DaftarTempatSampahFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
     }
 
-    public interface OnFragmentInteractionListener {
-        void onFragmentInteraction(Uri uri);
-    }
+
 }
