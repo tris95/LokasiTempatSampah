@@ -10,8 +10,8 @@ import android.view.MenuItem;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.sampah.lokasitempatsampah.R;
+import com.sampah.lokasitempatsampah.fragments.AboutFragment;
 import com.sampah.lokasitempatsampah.fragments.DaftarLaporanFragment;
-import com.sampah.lokasitempatsampah.fragments.DaftarTempatSampahFragment;
 import com.sampah.lokasitempatsampah.fragments.HomeFragment;
 import com.sampah.lokasitempatsampah.fragments.KategoriSampahFragment;
 import com.sampah.lokasitempatsampah.fragments.ProfileFragment;
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.navigation_event:
                         currentFragment = 2;
                         nowFragment = 2;
-                        fragment = DaftarTempatSampahFragment.newInstance();
+                        fragment = AboutFragment.newInstance();
                         lastFragment = fragment;
                         fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();
                         break;
