@@ -45,5 +45,5 @@ public class DaftarLaporanFragment extends Fragment {
         super.onDetach();
     }
 
-    
+
 }
