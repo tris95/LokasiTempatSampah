@@ -11,6 +11,7 @@ import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
+import android.text.TextUtils;
 import android.util.Base64;
 import android.view.inputmethod.InputMethodManager;
 
@@ -89,9 +90,6 @@ public class Utilities {
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void hideKeyboard(Activity context) {
-//        InputMethodManager imm = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
-//        Objects.requireNonNull(imm).toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
-
         InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(context.getCurrentFocus().getWindowToken(), 0);
     }
@@ -112,6 +110,10 @@ public class Utilities {
 
         prefsEditor.putBoolean("xFirstLaunch", true);
         prefsEditor.apply();
+    }
+
+    public static boolean isValidEmail(String email) {
+        return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
 //    public static void setLogin(final Context context, String email, String idp) {

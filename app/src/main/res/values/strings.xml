@@ -23,4 +23,9 @@
     <string name="nomor_hp">Nomor HP</string>
     <string name="alamat">Alamat</string>
     <string name="profil_kabupaten">Profil Muara Enim</string>
+
+    <string name="facebook_app_id">956674304531896</string>
+    <string name="facebook_account_kit_client_token">8485698abacd6c7c5e3286a91b9f6205</string>
+    <string name="fb_login_protocol_scheme">fb956674304531896</string>
+    <string name="ak_login_protocol_scheme">ak956674304531896</string>
 </resources>
