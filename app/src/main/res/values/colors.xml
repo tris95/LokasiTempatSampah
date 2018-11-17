@@ -6,4 +6,5 @@
     <color name="white">#ffffff</color>
 
     <color name="colorDivider">#EEEEEE</color>
+    <color name="colorDefault">#757575</color>
 </resources>

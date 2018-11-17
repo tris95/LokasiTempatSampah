@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.sampah.lokasitempatsampah.R;
+import com.sampah.lokasitempatsampah.utils.Utilities;
 
 public class SplashScreenActivity extends AppCompatActivity {
     Thread splashTread;
@@ -28,11 +29,17 @@ public class SplashScreenActivity extends AppCompatActivity {
 //                    if (!Utilities.isFirstLaunch(SplashScreenActivity.this)) {
 //                        Utilities.setFirstLaunch(SplashScreenActivity.this);
 //                    }
-
-                    Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class)
-                            .addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                    startActivity(intent);
-                    finish();
+                    if (Utilities.isLogin(SplashScreenActivity.this)) {
+                        Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent);
+                        finish();
+                    }else {
+                        Intent intent = new Intent(SplashScreenActivity.this, SignInActivity.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent);
+                        finish();
+                    }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {

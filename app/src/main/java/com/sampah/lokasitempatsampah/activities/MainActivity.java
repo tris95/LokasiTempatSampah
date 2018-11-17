@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 //        bottomNavigationView.enableItemShiftingMode(false);
 //        bottomNavigationView.setIconSize(27, 27);
 //        bottomNavigationView.setTextSize(11);
+
         fragment = HomeFragment.newInstance();
         currentFragment = 0;
         nowFragment = 0;
