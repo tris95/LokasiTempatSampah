@@ -1,6 +1,7 @@
 package com.sampah.lokasitempatsampah.services;
 
 
+import com.sampah.lokasitempatsampah.models.BankSampah;
 import com.sampah.lokasitempatsampah.models.User;
 import com.sampah.lokasitempatsampah.models.Value;
 
@@ -12,9 +13,9 @@ import retrofit2.http.POST;
 public interface APIServices {
 
 
-//    @FormUrlEncoded
-//    @POST("getactivead.php")
-//    Call<Value<Ad>> getactivead(@Field("xkey") String xkey);
+    @FormUrlEncoded
+    @POST("getbanksampah.php")
+    Call<Value<BankSampah>> getbanksampah(@Field("xkey") String xkey);
 
     @FormUrlEncoded
     @POST("signin.php")
@@ -36,13 +37,7 @@ public interface APIServices {
 //                          @Field("idp") String idp,
 //                          @Field("idpengguna") String idpengguna);
 //
-//    @FormUrlEncoded
-//    @POST("signupspik.php")
-//    Call<ValueAdd> signupspik(@Field("xkey") String xkey,
-//                              @Field("email") String email,
-//                              @Field("password") String password,
-//                              @Field("nama") String nama,
-//                              @Field("nohp") String nohp);
+
 //
 //    @FormUrlEncoded
 //    @POST("ubahpass.php")

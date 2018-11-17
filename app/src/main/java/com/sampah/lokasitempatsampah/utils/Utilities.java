@@ -40,7 +40,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Utilities {
     private static String server = "http://www.freshyummy.co.id/sampah/";
 
-    private static String getBaseURLUser() {
+    public static String getBaseURLUser() {
         return server + "android/user/";
     }
 
