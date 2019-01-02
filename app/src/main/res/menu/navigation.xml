@@ -7,19 +7,14 @@
         android:title="@string/title_home" />
 
     <item
-        android:id="@+id/navigation_kontak"
-        android:icon="@drawable/baseline_domain_24"
-        android:title="@string/title_kontak" />
-
-    <item
-        android:id="@+id/navigation_event"
-        android:icon="@drawable/baseline_stars_24"
-        android:title="@string/title_event" />
-
-    <item
         android:id="@+id/navigation_laporan"
         android:icon="@drawable/baseline_report_24"
         android:title="@string/title_laporan" />
+
+    <item
+        android:id="@+id/navigation_lokasi"
+        android:icon="@drawable/baseline_stars_24"
+        android:title="@string/lokasi" />
 
     <item
         android:id="@+id/navigation_profil"

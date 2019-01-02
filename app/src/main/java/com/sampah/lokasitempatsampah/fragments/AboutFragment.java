@@ -27,7 +27,6 @@ public class AboutFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_about, container, false);
 
-
         return view;
     }
 
