@@ -3,6 +3,8 @@ package com.sampah.lokasitempatsampah.activities;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.facebook.accountkit.Account;
 import com.facebook.accountkit.AccountKit;
@@ -34,6 +37,7 @@ public class SignUpActivity extends AppCompatActivity {
     EditText etEmail, etNama, etTelp;
     ProgressDialog pDialog;
     int APP_REQUEST_CODE = 99;
+    RelativeLayout lysignup;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -43,6 +47,7 @@ public class SignUpActivity extends AppCompatActivity {
         etEmail = findViewById(R.id.editText);
         etNama = findViewById(R.id.editText5);
         etTelp = findViewById(R.id.editText4);
+        lysignup=findViewById(R.id.lysignup);
 
         Button btnDaftar = findViewById(R.id.button);
         LinearLayout llMasuk = findViewById(R.id.ll_masuk);
@@ -85,6 +90,13 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
+        lysignup.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+            @Override
+            public void onClick(View v) {
+                Utilities.hideKeyboard(SignUpActivity.this);
+            }
+        });
         btnDaftar.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("NewApi")
             @Override
@@ -98,7 +110,9 @@ public class SignUpActivity extends AppCompatActivity {
                         Snackbar.make(findViewById(android.R.id.content), "Alamat email tidak valid",
                                 Snackbar.LENGTH_LONG).show();
                     } else {
-                        Utilities.hideKeyboard(SignUpActivity.this);
+                        Intent intent=new Intent(SignUpActivity.this,MainActivity.class);
+                        startActivity(intent);
+                        finish();
                     }
                 }
             }

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
@@ -15,7 +16,8 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary" />
+            android:background="@color/colorWhite"
+            app:titleTextColor="@color/colorDefault"/>
     </android.support.design.widget.AppBarLayout>
 
     <ScrollView
@@ -34,7 +36,6 @@
                 android:layout_above="@+id/ll"
                 android:layout_alignParentTop="true"
                 android:scaleType="fitXY"
-                android:background="@drawable/bacground"
                 tools:ignore="ContentDescription" />
 
             <ImageView
@@ -80,7 +81,7 @@
                         android:layout_margin="4dp"
                         android:src="@drawable/baseline_photo_camera_24"
                         android:tint="@android:color/white"
-                        tools:ignore="ContentDescription,UnusedAttribute" />
+                        tools:ignore="UnusedAttribute" />
                 </RelativeLayout>
             </RelativeLayout>
 
@@ -93,23 +94,21 @@
                 android:layout_margin="10dp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:padding="10dp"
-                tools:ignore="RelativeOverlap,UseCompoundDrawables">
+                android:padding="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
                     android:layout_marginRight="5dp"
-                    android:text="@string/edit_profil"
+                    android:text="Edit Profil"
                     android:textColor="@android:color/white" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/baseline_edit_24"
-                    android:tint="@android:color/white"
-                    tools:ignore="ContentDescription" />
+                    android:tint="@android:color/white" />
             </LinearLayout>
 
             <LinearLayout
@@ -135,7 +134,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
                     android:layout_marginRight="5dp"
-                    android:text="@string/profil_kabupaten"
+                    android:text="Profil Muara Enim"
                     android:textColor="@android:color/white" />
             </LinearLayout>
 
@@ -151,7 +150,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
-                    android:text="@string/data_akun"
+                    android:text="Data Akun"
                     android:textColor="@color/colorPrimary"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -177,45 +176,39 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/baseline_person_24"
-                                tools:ignore="ContentDescription" />
+                                android:src="@drawable/baseline_person_24" />
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingTop="15dp"
-                                android:src="@drawable/baseline_credit_card_24"
-                                android:tint="#757575"
-                                tools:ignore="ContentDescription" />
+                                android:src="@drawable/baseline_credit_card_black_24dp"
+                                android:tint="#757575" />
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingTop="15dp"
-                                android:src="@drawable/baseline_email_24"
-                                android:tint="#757575"
-                                tools:ignore="ContentDescription" />
+                                android:src="@drawable/baseline_email_black_24dp"
+                                android:tint="#757575" />
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingTop="20dp"
-                                android:src="@drawable/baseline_lock_24"
-                                tools:ignore="ContentDescription" />
+                                android:src="@drawable/baseline_lock_24" />
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingTop="15dp"
-                                android:src="@drawable/baseline_call_24"
-                                tools:ignore="ContentDescription" />
+                                android:src="@drawable/baseline_call_24" />
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingTop="15dp"
-                                android:src="@drawable/baseline_location_on_24"
-                                tools:ignore="ContentDescription" />
+                                android:src="@drawable/baseline_location_on_24" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -229,25 +222,22 @@
                                 android:id="@+id/etNama"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="@string/nama"
-                                android:textSize="14sp"
-                                tools:ignore="Autofill,TextFields" />
+                                android:hint="Nama"
+                                android:textSize="14sp" />
 
                             <EditText
                                 android:id="@+id/etNoKtp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="@string/nomor_ktp"
-                                android:textSize="14sp"
-                                tools:ignore="Autofill,TextFields" />
+                                android:hint="Nomor KTP"
+                                android:textSize="14sp" />
 
                             <EditText
                                 android:id="@+id/etEmail"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="@string/alamat_email"
-                                android:textSize="14sp"
-                                tools:ignore="Autofill,TextFields" />
+                                android:hint="Alamat email"
+                                android:textSize="14sp" />
 
                             <EditText
                                 android:id="@+id/etPassword"
@@ -256,24 +246,21 @@
                                 android:drawableEnd="@drawable/baseline_edit_24"
                                 android:drawableRight="@drawable/baseline_edit_24"
                                 android:hint="* * * * *"
-                                android:textSize="14sp"
-                                tools:ignore="Autofill,HardcodedText,TextFields" />
+                                android:textSize="14sp" />
 
                             <EditText
                                 android:id="@+id/etNoHp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="@string/nomor_hp"
-                                android:textSize="14sp"
-                                tools:ignore="Autofill,TextFields" />
+                                android:hint="Nomor HP"
+                                android:textSize="14sp" />
 
                             <EditText
                                 android:id="@+id/etAlamat"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="@string/alamat"
-                                android:textSize="14sp"
-                                tools:ignore="Autofill,TextFields" />
+                                android:hint="Alamat"
+                                android:textSize="14sp" />
                         </LinearLayout>
                     </LinearLayout>
                 </RelativeLayout>
@@ -285,10 +272,11 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/ll"
                 android:layout_alignParentBottom="true"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/button_background"
                 android:textAllCaps="false"
-                android:textColor="@android:color/white" />
+                android:textColor="@color/colorDefault" />
         </RelativeLayout>
     </ScrollView>
 </LinearLayout>

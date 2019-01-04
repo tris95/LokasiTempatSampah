@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -91,6 +91,7 @@
             android:inputType="textAutoComplete"
             android:minLines="2"
             android:textAlignment="textStart" />
+
         <!--<ImageView-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="250dp"-->
@@ -100,6 +101,7 @@
         <!--android:layout_marginTop="15dp"-->
         <!--android:layout_marginLeft="5dp"-->
         <!--android:layout_marginRight="5dp"/>-->
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -107,23 +109,23 @@
             android:text="Foto Laporan"
             android:textStyle="bold" />
 
-        <!--<ImageView-->
-            <!--android:id="@+id/imgLaporan"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="230dp"-->
-            <!--android:layout_gravity="center_horizontal"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:scaleType="centerCrop"-->
-            <!--android:src="@drawable/defaultimage" />-->
+        <ImageView
+            android:id="@+id/imgLaporan"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/defaultimage" />
 
-        <!--<Button-->
-            <!--android:id="@+id/btnKirim"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="20dp"-->
-            <!--android:layout_marginBottom="15dp"-->
-            <!--android:background="@drawable/button_background"-->
-            <!--android:text="Kirim"-->
-            <!--android:textColor="@color/white" />-->
+        <Button
+            android:id="@+id/btnKirim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/button_background"
+            android:text="Kirim"
+            android:textColor="@color/colorDefault" />
     </LinearLayout>
 </ScrollView>

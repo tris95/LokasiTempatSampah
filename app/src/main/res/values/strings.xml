@@ -30,4 +30,7 @@
     <string name="ak_login_protocol_scheme">ak956674304531896</string>
     <string name="lokasi">lokasi</string>
     <string name="kirim_laporan">Kirim Laporan</string>
+
+    <string name="tidak_terhubung_ke_server">Gagal terhubung ke server</string>
+    <string name="coba_lagi">Coba lagi</string>
 </resources>

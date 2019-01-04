@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_gravity="start"
-        android:background="@color/white"
+        android:background="@color/colorWhite"
         app:elevation="16dp"
         app:itemIconTint="@color/colorPrimary"
         app:itemTextColor="@color/colorPrimary"

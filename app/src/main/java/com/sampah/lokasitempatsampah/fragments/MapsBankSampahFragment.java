@@ -83,8 +83,6 @@ public class MapsBankSampahFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_maps_bank_sampah, container, false);
 
-        lokasibanksampah();
-
         mapView = v.findViewById(R.id.maps);
         mapView.onCreate(savedInstanceState);
         mapView.onResume();
@@ -94,6 +92,8 @@ public class MapsBankSampahFragment extends Fragment {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        lokasibanksampah();
 
         return v;
     }
