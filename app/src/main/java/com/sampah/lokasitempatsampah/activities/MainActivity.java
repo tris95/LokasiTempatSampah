@@ -12,6 +12,7 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.sampah.lokasitempatsampah.R;
 import com.sampah.lokasitempatsampah.fragments.DaftarLaporanFragment;
 import com.sampah.lokasitempatsampah.fragments.HomeFragment;
+import com.sampah.lokasitempatsampah.fragments.KirimLaporanFragment;
 import com.sampah.lokasitempatsampah.fragments.MapsBankSampahFragment;
 import com.sampah.lokasitempatsampah.fragments.ProfileFragment;
 
@@ -59,16 +60,23 @@ public class MainActivity extends AppCompatActivity {
                         lastFragment = fragment;
                         fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();
                         break;
-                    case R.id.navigation_lokasi:
+                    case R.id.navigation_kirimlaporan:
                         currentFragment = 2;
                         nowFragment = 2;
+                        fragment = KirimLaporanFragment.newInstance();
+                        lastFragment = fragment;
+                        fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();
+                        break;
+                    case R.id.navigation_lokasi:
+                        currentFragment = 3;
+                        nowFragment = 3;
                         fragment = MapsBankSampahFragment.newInstance();
                         lastFragment = fragment;
                         fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();
                         break;
                     case R.id.navigation_profil:
-                        currentFragment = 3;
-                        nowFragment = 3;
+                        currentFragment = 4;
+                        nowFragment = 4;
                         fragment = ProfileFragment.newInstance();
                         lastFragment = fragment;
                         fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();

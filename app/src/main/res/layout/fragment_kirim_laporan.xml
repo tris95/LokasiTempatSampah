@@ -107,23 +107,23 @@
             android:text="Foto Laporan"
             android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/imgLaporan"
-            android:layout_width="match_parent"
-            android:layout_height="230dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/defaultimage" />
+        <!--<ImageView-->
+            <!--android:id="@+id/imgLaporan"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="230dp"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:scaleType="centerCrop"-->
+            <!--android:src="@drawable/defaultimage" />-->
 
-        <Button
-            android:id="@+id/btnKirim"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/button_background"
-            android:text="Kirim"
-            android:textColor="@color/white" />
+        <!--<Button-->
+            <!--android:id="@+id/btnKirim"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:layout_marginBottom="15dp"-->
+            <!--android:background="@drawable/button_background"-->
+            <!--android:text="Kirim"-->
+            <!--android:textColor="@color/white" />-->
     </LinearLayout>
 </ScrollView>

@@ -12,6 +12,11 @@
         android:title="@string/title_laporan" />
 
     <item
+        android:id="@+id/navigation_kirimlaporan"
+        android:icon="@drawable/baseline_report_24"
+        android:title="@string/kirim_laporan" />
+
+    <item
         android:id="@+id/navigation_lokasi"
         android:icon="@drawable/baseline_stars_24"
         android:title="@string/lokasi" />

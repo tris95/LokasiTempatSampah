@@ -29,4 +29,5 @@
     <string name="fb_login_protocol_scheme">fb956674304531896</string>
     <string name="ak_login_protocol_scheme">ak956674304531896</string>
     <string name="lokasi">lokasi</string>
+    <string name="kirim_laporan">Kirim Laporan</string>
 </resources>
