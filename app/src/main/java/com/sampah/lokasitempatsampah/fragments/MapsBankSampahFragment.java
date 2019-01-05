@@ -98,72 +98,72 @@ public class MapsBankSampahFragment extends Fragment {
         return v;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        mapView.onResume();
-    }
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        mapView.onResume();
+//    }
+//
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//        mapView.onPause();
+//    }
+//
+//    @Override
+//    public void onDestroy() {
+//        super.onDestroy();
+//        mapView.onDestroy();
+//    }
+//
+//    @Override
+//    public void onLowMemory() {
+//        super.onLowMemory();
+//        mapView.onLowMemory();
+//    }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        mapView.onPause();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        mapView.onDestroy();
-    }
-
-    @Override
-    public void onLowMemory() {
-        super.onLowMemory();
-        mapView.onLowMemory();
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-    }
+//    @Override
+//    public void onAttach(Context context) {
+//        super.onAttach(context);
+//    }
+//
+//    @Override
+//    public void onDetach() {
+//        super.onDetach();
+//    }
 
     private void lokasibanksampah() {
-        final ProgressDialog pDialog = new ProgressDialog(getActivity());
-        pDialog.setMessage("Loading...");
-        pDialog.setIndeterminate(false);
-        pDialog.setCancelable(false);
-        pDialog.show();
+//        final ProgressDialog pDialog = new ProgressDialog(getActivity());
+//        pDialog.setMessage("Loading...");
+//        pDialog.setIndeterminate(false);
+//        pDialog.setCancelable(false);
+//        pDialog.show();
+//
+//        String random = Utilities.getRandom(5);
+//
+//        OkHttpClient okHttpClient = Utilities.getUnsafeOkHttpClient();
 
-        String random = Utilities.getRandom(5);
-
-        OkHttpClient okHttpClient = Utilities.getUnsafeOkHttpClient();
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Utilities.getBaseURLUser())
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(okHttpClient)
-                .build();
-
-        APIServices api = retrofit.create(APIServices.class);
-        Call<Value<BankSampah>> call = api.getbanksampah(random);
-        call.enqueue(new Callback<Value<BankSampah>>() {
-            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-            @Override
-            public void onResponse(@NonNull Call<Value<BankSampah>> call, @NonNull Response<Value<BankSampah>> response) {
-                pDialog.dismiss();
-                if (response.body() != null) {
-                    int success = Objects.requireNonNull(response.body()).getSuccess();
-                    if (success == 1) {
-                        ArrayList<BankSampah> mListBankSampah = (ArrayList<BankSampah>) Objects.requireNonNull(response.body()).getData();
-
-                        lat = mListBankSampah.get(0).getLat();
-                        lng = mListBankSampah.get(0).getLng();
-                        namaLokasi = mListBankSampah.get(0).getNama_bank_sampah();
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl(Utilities.getBaseURLUser())
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .client(okHttpClient)
+//                .build();
+//
+//        APIServices api = retrofit.create(APIServices.class);
+//        Call<Value<BankSampah>> call = api.getbanksampah(random);
+//        call.enqueue(new Callback<Value<BankSampah>>() {
+//            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+//            @Override
+//            public void onResponse(@NonNull Call<Value<BankSampah>> call, @NonNull Response<Value<BankSampah>> response) {
+//                pDialog.dismiss();
+//                if (response.body() != null) {
+//                    int success = Objects.requireNonNull(response.body()).getSuccess();
+//                    if (success == 1) {
+//                        ArrayList<BankSampah> mListBankSampah = (ArrayList<BankSampah>) Objects.requireNonNull(response.body()).getData();
+//
+//                        lat = mListBankSampah.get(0).getLat();
+//                        lng = mListBankSampah.get(0).getLng();
+//                        namaLokasi = mListBankSampah.get(0).getNama_bank_sampah();
 
                         mapView.getMapAsync(new OnMapReadyCallback() {
                             @Override
@@ -192,8 +192,9 @@ public class MapsBankSampahFragment extends Fragment {
 //                                    gMap.animateCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition.Builder().target(currentLatLng).zoom(15).build()));
 //                                    gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 12));
 
-                                LatLng destlatLng = new LatLng(Double.parseDouble(lat), Double.parseDouble(lng));
-                                gMap.addMarker(new MarkerOptions().position(destlatLng).title(namaLokasi)).showInfoWindow();
+                                //LatLng destlatLng = new LatLng(Double.parseDouble(lat), Double.parseDouble(lng));
+                                LatLng destlatLng = new LatLng(-3.3571023,104.3231384);
+                                gMap.addMarker(new MarkerOptions().position(destlatLng).title("Bank Sampah KI")).showInfoWindow();
                                 gMap.animateCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition.Builder().target(destlatLng).zoom(15).build()));
 
 //                                    if (currentLatLng != null && destlatLng != null) {
@@ -214,28 +215,28 @@ public class MapsBankSampahFragment extends Fragment {
 //                }
                             }
                         });
-                    } else {
-//                        rl_none.setVisibility(View.GONE);
-                        Snackbar.make(Objects.requireNonNull(getActivity()).findViewById(android.R.id.content), "Gagal mengambil data. Silahkan coba lagi",
-                                Snackbar.LENGTH_LONG).show();
-                    }
-                } else {
-//                    rl_none.setVisibility(View.GONE);
-                    Snackbar.make(Objects.requireNonNull(getActivity()).findViewById(android.R.id.content), "Gagal mengambil data. Silahkan coba lagi",
-                            Snackbar.LENGTH_LONG).show();
-                }
-            }
-
-            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-            @Override
-            public void onFailure(@NonNull Call<Value<BankSampah>> call, @NonNull Throwable t) {
-                System.out.println("Retrofit Error:" + t.getMessage());
-                pDialog.dismiss();
-//                rl_none.setVisibility(View.GONE);
-                Snackbar.make(Objects.requireNonNull(getActivity()).findViewById(android.R.id.content), "Tidak terhubung ke Internet",
-                        Snackbar.LENGTH_LONG).show();
-            }
-        });
+//                    } else {
+////                        rl_none.setVisibility(View.GONE);
+//                        Snackbar.make(Objects.requireNonNull(getActivity()).findViewById(android.R.id.content), "Gagal mengambil data. Silahkan coba lagi",
+//                                Snackbar.LENGTH_LONG).show();
+//                    }
+//                } else {
+////                    rl_none.setVisibility(View.GONE);
+//                    Snackbar.make(Objects.requireNonNull(getActivity()).findViewById(android.R.id.content), "Gagal mengambil data. Silahkan coba lagi",
+//                            Snackbar.LENGTH_LONG).show();
+//                }
+//            }
+//
+//            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+//            @Override
+//            public void onFailure(@NonNull Call<Value<BankSampah>> call, @NonNull Throwable t) {
+//                System.out.println("Retrofit Error:" + t.getMessage());
+//                pDialog.dismiss();
+////                rl_none.setVisibility(View.GONE);
+//                Snackbar.make(Objects.requireNonNull(getActivity()).findViewById(android.R.id.content), "Tidak terhubung ke Internet",
+//                        Snackbar.LENGTH_LONG).show();
+//            }
+//        });
     }
 
     private String getUrl(LatLng origin, LatLng dest) {
