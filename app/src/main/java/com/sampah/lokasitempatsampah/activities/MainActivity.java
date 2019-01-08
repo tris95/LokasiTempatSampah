@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.sampah.lokasitempatsampah.R;
 import com.sampah.lokasitempatsampah.fragments.DaftarLaporanFragment;
-import com.sampah.lokasitempatsampah.fragments.HomeFragment;
 import com.sampah.lokasitempatsampah.fragments.KirimLaporanFragment;
 import com.sampah.lokasitempatsampah.fragments.MapsBankSampahFragment;
 import com.sampah.lokasitempatsampah.fragments.ProfileFragment;
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 //        bottomNavigationView.setIconSize(27, 27);
 //        bottomNavigationView.setTextSize(11);
 
-        fragment = HomeFragment.newInstance();
+        fragment = MapsBankSampahFragment.newInstance();
         currentFragment = 0;
         nowFragment = 0;
         fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();
@@ -46,10 +45,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.navigation_home:
+                    case R.id.navigation_lokasi:
                         currentFragment = 0;
                         nowFragment = 0;
-                        fragment = HomeFragment.newInstance();
+                        fragment = MapsBankSampahFragment.newInstance();
                         lastFragment = fragment;
                         fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();
                         break;
@@ -64,13 +63,6 @@ public class MainActivity extends AppCompatActivity {
                         currentFragment = 2;
                         nowFragment = 2;
                         fragment = KirimLaporanFragment.newInstance();
-                        lastFragment = fragment;
-                        fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();
-                        break;
-                    case R.id.navigation_lokasi:
-                        currentFragment = 3;
-                        nowFragment = 3;
-                        fragment = MapsBankSampahFragment.newInstance();
                         lastFragment = fragment;
                         fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();
                         break;

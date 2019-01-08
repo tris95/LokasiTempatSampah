@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_home"
-        android:icon="@drawable/icon_home"
-        android:title="@string/title_home" />
+        android:id="@+id/navigation_lokasi"
+        android:icon="@drawable/icon_location"
+        android:title="@string/lokasi" />
 
     <item
         android:id="@+id/navigation_laporan"
@@ -15,11 +15,6 @@
         android:id="@+id/navigation_kirimlaporan"
         android:icon="@drawable/icon_report"
         android:title="@string/kirim_laporan" />
-
-    <item
-        android:id="@+id/navigation_lokasi"
-        android:icon="@drawable/icon_location"
-        android:title="@string/lokasi" />
 
     <item
         android:id="@+id/navigation_profil"
