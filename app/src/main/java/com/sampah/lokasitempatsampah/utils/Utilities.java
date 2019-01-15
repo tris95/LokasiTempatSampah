@@ -15,6 +15,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.view.inputmethod.InputMethodManager;
 
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
 import com.sampah.lokasitempatsampah.models.User;
 import com.sampah.lokasitempatsampah.models.ValueAdd;
@@ -39,10 +40,11 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Utilities {
-    private static String server = "http://www.freshyummy.co.id/sampah/";
+    //    private static String server = "http://www.freshyummy.co.id/sampah/";
+    private static String server = "http://192.168.43.58/websampah/";
 
     public static String getBaseURLUser() {
-        return server + "android/user/";
+        return server + "android/";
     }
 
     public static String getURLImageIklan() {
@@ -91,7 +93,7 @@ public class Utilities {
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void hideKeyboard(Activity context) {
         InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
-        inputMethodManager.hideSoftInputFromWindow(context.getCurrentFocus().getWindowToken(), 0);
+        inputMethodManager.hideSoftInputFromWindow(Objects.requireNonNull(context.getCurrentFocus()).getWindowToken(), 0);
     }
 
     public static Boolean isLogin(Context context) {
@@ -161,13 +163,13 @@ public class Utilities {
 //        });
 //    }
 
-//    public static String getToken() {
-//        String token = FirebaseInstanceId.getInstance().getToken();
-//        if (token == null) {
-//            token = "";
-//        }
-//        return token;
-//    }
+    public static String getToken() {
+        String token = FirebaseInstanceId.getInstance().getToken();
+        if (token == null) {
+            token = "";
+        }
+        return token;
+    }
 
 //    public static boolean isValidEmail(String email) {
 //        return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();

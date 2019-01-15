@@ -23,36 +23,6 @@
             android:scaleType="fitXY"
             android:src="@drawable/icon2" />
 
-        <!--<RelativeLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:paddingBottom="10dp">-->
-
-        <LinearLayout
-            android:id="@+id/ll1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_email_black_24dp"
-                android:tint="@color/colorDefault" />
-
-            <EditText
-                android:id="@+id/editText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:hint="Email (nama@email.com)"
-                android:inputType="textEmailAddress"
-                android:textSize="14sp" />
-
-        </LinearLayout>
-
         <LinearLayout
             android:id="@+id/ll2"
             android:layout_width="match_parent"
@@ -103,6 +73,29 @@
 
         <!--</RelativeLayout>-->
 
+        <LinearLayout
+            android:id="@+id/ll4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:src="@drawable/baseline_lock_24"
+                android:tint="@color/colorDefault" />
+
+            <EditText
+                android:id="@+id/editText6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:hint="Password"
+                android:inputType="textPersonName"
+                android:textSize="14sp" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/button"

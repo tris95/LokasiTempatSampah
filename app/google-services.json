@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "330339977594",
+    "firebase_url": "https://lokasitempatsampah.firebaseio.com",
+    "project_id": "lokasitempatsampah",
+    "storage_bucket": "lokasitempatsampah.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:330339977594:android:319287ab6b737ad4",
+        "android_client_info": {
+          "package_name": "com.sampah.lokasitempatsampah"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "330339977594-k85cvghnpo4kiaqndvs72n84q6r4kjc3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sampah.lokasitempatsampah",
+            "certificate_hash": "d3a300151eab131c8dea130fa053f58f6ad7dba3"
+          }
+        },
+        {
+          "client_id": "330339977594-a0f6sgdaf1me65tsi9en2o3gniv7pq07.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYT7mjZcMWQpcR2ThYfxTXl2gdbJmWzRY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "330339977594-a0f6sgdaf1me65tsi9en2o3gniv7pq07.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

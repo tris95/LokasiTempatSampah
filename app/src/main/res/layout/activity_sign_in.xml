@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="25dp"
-            android:text="Silahkan masuk dengan no. HP atau email Anda yang sudah terdaftar."
+            android:text="Silahkan masuk dengan no. HP Anda yang sudah terdaftar."
             android:textAlignment="center" />
 
         <LinearLayout
@@ -41,7 +41,7 @@
                 android:layout_height="25dp"
                 android:layout_gravity="center"
                 android:tint="@color/colorDefault"
-                android:src="@drawable/ic_phone_mail"/>
+                android:src="@drawable/baseline_call_24"/>
 
             <EditText
                 android:id="@+id/editText"
@@ -50,7 +50,33 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:hint="No. HP atau email"
+                android:hint="No. HP"
+                android:inputType="textEmailAddress"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/l2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:tint="@color/colorDefault"
+                android:src="@drawable/baseline_lock_24"/>
+
+            <EditText
+                android:id="@+id/editText1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:hint="Password"
                 android:inputType="textEmailAddress"
                 android:textSize="14sp" />
 

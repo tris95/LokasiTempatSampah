@@ -4,13 +4,12 @@ import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -29,12 +28,23 @@ import com.facebook.accountkit.ui.AccountKitActivity;
 import com.facebook.accountkit.ui.AccountKitConfiguration;
 import com.facebook.accountkit.ui.LoginType;
 import com.sampah.lokasitempatsampah.R;
+import com.sampah.lokasitempatsampah.models.ValueAdd;
+import com.sampah.lokasitempatsampah.services.APIServices;
 import com.sampah.lokasitempatsampah.utils.Utilities;
 
 import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import okhttp3.OkHttpClient;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SignUpActivity extends AppCompatActivity {
-    EditText etEmail, etNama, etTelp;
+    EditText etNama, etTelp, etPassword;
     ProgressDialog pDialog;
     int APP_REQUEST_CODE = 99;
     RelativeLayout lysignup;
@@ -44,10 +54,10 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-        etEmail = findViewById(R.id.editText);
         etNama = findViewById(R.id.editText5);
+        etPassword = findViewById(R.id.editText6);
         etTelp = findViewById(R.id.editText4);
-        lysignup=findViewById(R.id.lysignup);
+        lysignup = findViewById(R.id.lysignup);
 
         Button btnDaftar = findViewById(R.id.button);
         LinearLayout llMasuk = findViewById(R.id.ll_masuk);
@@ -101,19 +111,11 @@ public class SignUpActivity extends AppCompatActivity {
             @SuppressLint("NewApi")
             @Override
             public void onClick(View view) {
-                if (TextUtils.isEmpty(etEmail.getText().toString().trim()) || TextUtils.isEmpty(etNama.getText().toString().trim()) || TextUtils.isEmpty(etTelp.getText().toString().trim())){
+                if (TextUtils.isEmpty(etNama.getText().toString().trim()) || TextUtils.isEmpty(etTelp.getText().toString().trim())) {
                     Snackbar.make(findViewById(android.R.id.content), "Harap lengkapi semua data yang dibutuhkan",
                             Snackbar.LENGTH_LONG).show();
-                }else {
-                    if (!Utilities.isValidEmail(etEmail.getText().toString())) {
-                        requestFocus(etEmail);
-                        Snackbar.make(findViewById(android.R.id.content), "Alamat email tidak valid",
-                                Snackbar.LENGTH_LONG).show();
-                    } else {
-                        Intent intent=new Intent(SignUpActivity.this,MainActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
+                } else {
+                    signup();
                 }
             }
         });
@@ -168,5 +170,66 @@ public class SignUpActivity extends AppCompatActivity {
                 });
             }
         }
+    }
+
+    private void signup() {
+        final ProgressDialog pDialog = new ProgressDialog(SignUpActivity.this);
+        pDialog.setMessage("Loading...");
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(false);
+        pDialog.show();
+
+        String random = Utilities.getRandom(5);
+
+        OkHttpClient okHttpClient = Utilities.getUnsafeOkHttpClient();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Utilities.getBaseURLUser())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(okHttpClient)
+                .build();
+
+        APIServices api = retrofit.create(APIServices.class);
+        Call<ValueAdd> call = api.signup(random, etPassword.getText().toString().trim(),
+                etNama.getText().toString().trim().toUpperCase(), etTelp.getText().toString().trim());
+        call.enqueue(new Callback<ValueAdd>() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+            @Override
+            public void onResponse(@NonNull Call<ValueAdd> call, @NonNull Response<ValueAdd> response) {
+                pDialog.dismiss();
+                if (response.body() != null) {
+                    int success = Objects.requireNonNull(response.body()).getSuccess();
+                    if (success == 1) {
+                        Snackbar.make(Objects.requireNonNull(findViewById(android.R.id.content)).findViewById(android.R.id.content), "Akun berhasil terdaftar. Silakan login aplikasi", 3500).show();
+                        new Timer().schedule(new TimerTask() {
+                            @Override
+                            public void run() {
+                                Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        }, 500);
+                    } else if (success == 2) {
+                        Snackbar.make(Objects.requireNonNull(findViewById(android.R.id.content)).findViewById(android.R.id.content), "Alamat email sudah terdaftar. Silakan masuk aplikasi",
+                                Snackbar.LENGTH_LONG).show();
+                    } else {
+                        Snackbar.make(Objects.requireNonNull(findViewById(android.R.id.content)).findViewById(android.R.id.content), "Gagal menyimpan data. Silakan coba lagi",
+                                Snackbar.LENGTH_LONG).show();
+                    }
+                } else {
+                    Snackbar.make(Objects.requireNonNull(findViewById(android.R.id.content)).findViewById(android.R.id.content), "Gagal mengambil data. Silakan coba lagi",
+                            Snackbar.LENGTH_LONG).show();
+                }
+            }
+
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+            @Override
+            public void onFailure(@NonNull Call<ValueAdd> call, @NonNull Throwable t) {
+                System.out.println("Retrofit Error:" + t.getMessage());
+                pDialog.dismiss();
+                Snackbar.make(Objects.requireNonNull(findViewById(android.R.id.content)).findViewById(android.R.id.content), "Tidak terhubung ke Internet",
+                        Snackbar.LENGTH_LONG).show();
+            }
+        });
     }
 }

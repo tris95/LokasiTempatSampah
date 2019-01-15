@@ -29,17 +29,17 @@ public class SplashScreenActivity extends AppCompatActivity {
 //                    if (!Utilities.isFirstLaunch(SplashScreenActivity.this)) {
 //                        Utilities.setFirstLaunch(SplashScreenActivity.this);
 //                    }
-//                    if (Utilities.isLogin(SplashScreenActivity.this)) {
+                    if (Utilities.isLogin(SplashScreenActivity.this)) {
                         Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class)
                                 .addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent);
                         finish();
-//                    }else {
-//                        Intent intent = new Intent(SplashScreenActivity.this, SignInActivity.class)
-//                                .addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-//                        startActivity(intent);
-//                        finish();
-//                    }
+                    }else {
+                        Intent intent = new Intent(SplashScreenActivity.this, SignInActivity.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent);
+                        finish();
+                    }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
