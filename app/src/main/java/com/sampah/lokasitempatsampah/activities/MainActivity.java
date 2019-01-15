@@ -1,9 +1,15 @@
 package com.sampah.lokasitempatsampah.activities;
 
+import android.Manifest;
+import android.annotation.TargetApi;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -21,7 +27,9 @@ public class MainActivity extends AppCompatActivity {
     Fragment fragment;
     static int currentFragment = 0, nowFragment = 0;
     static Fragment lastFragment;
+    public static final int PHONE_REQUEST = 1;
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,16 +38,27 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         fragmentManager = getSupportFragmentManager();
 
-//        bottomNavigationView.enableAnimation(true);
-//        bottomNavigationView.enableShiftingMode(false);
-//        bottomNavigationView.enableItemShiftingMode(false);
-//        bottomNavigationView.setIconSize(27, 27);
-//        bottomNavigationView.setTextSize(11);
+        bottomNavigationView.enableAnimation(true);
+        bottomNavigationView.enableShiftingMode(false);
+        bottomNavigationView.enableItemShiftingMode(false);
+        bottomNavigationView.setIconSize(27, 27);
+        bottomNavigationView.setTextSize(11);
 
         fragment = MapsBankSampahFragment.newInstance();
         currentFragment = 0;
         nowFragment = 0;
         fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();
+
+        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) !=
+                PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.CAMERA) !=
+                        PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.READ_EXTERNAL_STORAGE) !=
+                        PackageManager.PERMISSION_GRANTED) {
+
+            requestPermissions(new String[]{
+                    Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE}, PHONE_REQUEST);
+        }
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -77,5 +96,19 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+    @TargetApi(Build.VERSION_CODES.M)
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case PHONE_REQUEST: {
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED && grantResults[2] == PackageManager.PERMISSION_GRANTED) {
+
+                } else {
+                    requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE}, PHONE_REQUEST);
+                }
+            }
+        }
     }
 }

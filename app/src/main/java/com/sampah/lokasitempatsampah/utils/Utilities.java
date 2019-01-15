@@ -41,14 +41,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Utilities {
     //    private static String server = "http://www.freshyummy.co.id/sampah/";
-    private static String server = "http://192.168.43.58/websampah/";
+    private static String server = "http://10.10.29.214/websampah/";
 
     public static String getBaseURLUser() {
         return server + "android/";
     }
 
-    public static String getURLImageIklan() {
-        return server + "wp/gambar_iklan/";
+    public static String getURLImage() {
+        return server + "android/gambar_laporan/";
     }
 
     public static boolean isNetworkAvailable(Context context) {
@@ -118,50 +118,14 @@ public class Utilities {
         return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
-//    public static void setLogin(final Context context, String email, String idp) {
-//        SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-//        final SharedPreferences.Editor prefsEditor = mPrefs.edit();
-//
-//        String random = Utilities.getRandom(5);
-//
-//        OkHttpClient okHttpClient = Utilities.getUnsafeOkHttpClient();
-//
-//        Retrofit retrofit = new Retrofit.Builder()
-//                .baseUrl(Utilities.getBaseURLUser())
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .client(okHttpClient)
-//                .build();
-//
-//        APIServices api = retrofit.create(APIServices.class);
-//        Call<ValueAdd> call = api.setlogindb(random, email, idp);
-//        call.enqueue(new Callback<ValueAdd>() {
-//            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-//            @Override
-//            public void onResponse(@NonNull Call<ValueAdd> call, @NonNull Response<ValueAdd> response) {
-//                if (response.body() != null) {
-//                    int success = Objects.requireNonNull(response.body()).getSuccess();
-//                    if (success == 0) {
-//                        prefsEditor.putBoolean("xLogin", false);
-//                        prefsEditor.apply();
-//                        Utilities.signOutUser(context);
-//                    } else if (success == 1) {
-//                        prefsEditor.putBoolean("xLogin", true);
-//                        prefsEditor.apply();
-//                    } else if (success == 2) {
-//                        prefsEditor.putBoolean("xLogin", false);
-//                        prefsEditor.apply();
-//                        Utilities.signOutUser(context);
-//                    }
-//                }
-//            }
-//
-//            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-//            @Override
-//            public void onFailure(@NonNull Call<ValueAdd> call, @NonNull Throwable t) {
-//                System.out.println("Retrofit Error:" + t.getMessage());
-//            }
-//        });
-//    }
+    public static void setLogin(final Context context) {
+        SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        final SharedPreferences.Editor prefsEditor = mPrefs.edit();
+
+        prefsEditor.putBoolean("xLogin", true);
+        prefsEditor.apply();
+
+    }
 
     public static String getToken() {
         String token = FirebaseInstanceId.getInstance().getToken();

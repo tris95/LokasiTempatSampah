@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.sampah.lokasitempatsampah.R;
 import com.sampah.lokasitempatsampah.models.User;
@@ -36,7 +37,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class SignInActivity extends AppCompatActivity {
 
     EditText etnohp, etpassword;
-    public static List<User> users;
+    RelativeLayout lysignin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +47,12 @@ public class SignInActivity extends AppCompatActivity {
         etpassword = findViewById(R.id.editText1);
         Button btnMasuk = findViewById(R.id.button);
         LinearLayout llDaftar = findViewById(R.id.ll_daftar);
+        lysignin = findViewById(R.id.lysignin);
 
         llDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(SignInActivity.this, SignUpActivity.class));
-                finish();
             }
         });
 
@@ -66,6 +67,13 @@ public class SignInActivity extends AppCompatActivity {
                 } else {
                     signin();
                 }
+            }
+        });
+        lysignin.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+            @Override
+            public void onClick(View v) {
+                Utilities.hideKeyboard(SignInActivity.this);
             }
         });
     }
@@ -109,16 +117,14 @@ public class SignInActivity extends AppCompatActivity {
                                 Intent intent = new Intent(SignInActivity.this, MainActivity.class);
                                 startActivity(intent);
                                 finish();
+                                Utilities.setLogin(SignInActivity.this);
                             }
                         }, 500);
                     } else if (success == 2) {
-                        Snackbar.make(Objects.requireNonNull(findViewById(android.R.id.content)).findViewById(android.R.id.content), "Alamat email tidak terdaftar",
+                        Snackbar.make(Objects.requireNonNull(findViewById(android.R.id.content)).findViewById(android.R.id.content), "No HP tidak terdaftar",
                                 Snackbar.LENGTH_LONG).show();
                     } else if (success == 3) {
                         Snackbar.make(Objects.requireNonNull(findViewById(android.R.id.content)).findViewById(android.R.id.content), "Password yang Anda masukkan salah",
-                                Snackbar.LENGTH_LONG).show();
-                    } else if (success == 4) {
-                        Snackbar.make(Objects.requireNonNull(findViewById(android.R.id.content)).findViewById(android.R.id.content), "Akun Anda telah diblokir",
                                 Snackbar.LENGTH_LONG).show();
                     } else {
                         Snackbar.make(Objects.requireNonNull(findViewById(android.R.id.content)).findViewById(android.R.id.content), "Gagal masuk aplikasi. Silakan coba lagi",

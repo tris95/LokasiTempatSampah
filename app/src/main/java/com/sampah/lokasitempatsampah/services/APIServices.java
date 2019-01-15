@@ -16,7 +16,7 @@ public interface APIServices {
 
 
     @FormUrlEncoded
-    @POST("getbanksampah.php")
+    @POST("getlokasibanksampah.php")
     Call<Value<BankSampah>> getbanksampah(@Field("xkey") String xkey);
 
     @FormUrlEncoded
@@ -62,17 +62,15 @@ public interface APIServices {
     @POST("kirimlaporan.php")
     Call<ValueAdd> kirimlaporan(@Field("xkey") String xkey,
                                 @Field("iduser") String iduser,
-                                @Field("idopd") String idopd,
-                                @Field("judul") String judul,
-                                @Field("isi") String isi,
-                                @Field("nohp") String nohp,
-                                @Field("lokasi") String lokasi,
-                                @Field("foto") String foto);
+                                @Field("ket") String ket,
+                                @Field("latitude") String latitude,
+                                @Field("longitude") String longitude,
+                                @Field("gambar") String gambar);
 
     @FormUrlEncoded
     @POST("getlaporan.php")
     Call<Value<Laporan>> getlaporan(@Field("xkey") String xkey,
-                                    @Field("id") String id);
+                                    @Field("iduser") String iduser);
 
 //    @FormUrlEncoded
 //    @POST("cekime.php")

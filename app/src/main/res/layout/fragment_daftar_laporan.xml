@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colorYellow"
                 android:padding="5dp"
-                android:text="Verifikasi"
+                android:text="Belum Ditanggapi"
                 android:textAlignment="center"
                 android:textColor="@android:color/white" />
         </LinearLayout>
@@ -75,42 +75,19 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
-                android:background="@color/colorBlue"
+                android:background="@color/colorGreen"
                 android:visibility="gone" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorBlue"
+                android:background="@color/colorGreen"
                 android:padding="5dp"
                 android:text="Tanggapi"
                 android:textAlignment="center"
                 android:textColor="@android:color/white" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="5dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:background="@color/colorGreen"
-                android:visibility="gone" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorGreen"
-                android:padding="5dp"
-                android:text="Disposisi"
-                android:textAlignment="center"
-                android:textColor="@android:color/white" />
-        </LinearLayout>
     </LinearLayout>
 
     <RelativeLayout

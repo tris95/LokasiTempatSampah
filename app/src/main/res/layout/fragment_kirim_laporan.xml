@@ -13,96 +13,6 @@
         tools:context="id.go.muaraenimkab.mance.fragments.KirimLaporanFragment">
 
         <TextView
-            android:id="@+id/lblTujuan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Area"
-            android:textStyle="bold" />
-
-        <Spinner
-            android:id="@+id/spArea"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/lblJudul"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_margin"
-            android:text="Judul Laporan"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/txtJudul"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Judul laporan Anda"
-            android:inputType="textAutoComplete" />
-
-        <TextView
-            android:id="@+id/lblIsi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_margin"
-            android:text="Isi Laporan"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/txtIsi"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="start"
-            android:hint="Isi laporan Anda"
-            android:inputType="textAutoComplete"
-            android:minLines="5"
-            android:textAlignment="textStart" />
-
-        <TextView
-            android:id="@+id/lblnotlp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_margin"
-            android:text="No. Hp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/txtNoHp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="start"
-            android:hint="No. Hp yang dapat dihubungi"
-            android:inputType="number"
-            android:textAlignment="textStart" />
-
-        <TextView
-            android:id="@+id/lblLokasi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_margin"
-            android:text="Lokasi"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/txtLokasi"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="start"
-            android:hint="Detail lokasi pengaduan (optional)"
-            android:inputType="textAutoComplete"
-            android:minLines="2"
-            android:textAlignment="textStart" />
-
-        <!--<ImageView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="250dp"-->
-        <!--android:id="@+id/imgLaporan"-->
-        <!--android:scaleType="centerCrop"-->
-        <!--android:src="@drawable/jalan"-->
-        <!--android:layout_marginTop="15dp"-->
-        <!--android:layout_marginLeft="5dp"-->
-        <!--android:layout_marginRight="5dp"/>-->
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_margin"
@@ -118,11 +28,29 @@
             android:scaleType="centerCrop"
             android:src="@drawable/defaultimage" />
 
+        <TextView
+            android:id="@+id/lblIsi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:text="Keterangan"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/txtket"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="start"
+            android:hint="(Optional)"
+            android:inputType="textAutoComplete"
+            android:minLines="5"
+            android:textAlignment="textStart" />
+
         <Button
             android:id="@+id/btnKirim"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/button_background"
             android:text="Kirim"

@@ -19,6 +19,7 @@ import com.github.siyamed.shapeimageview.CircularImageView;
 import com.sampah.lokasitempatsampah.R;
 import com.sampah.lokasitempatsampah.models.Laporan;
 import com.sampah.lokasitempatsampah.utils.Utilities;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -42,68 +43,28 @@ public class LaporanViewAdapter extends RecyclerView.Adapter<LaporanViewAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull final DataObjectHolder holder, @SuppressLint("RecyclerView") final int position) {
-        holder.lblJudul.setText(mList.get(position).getJudul_laporan());
-        holder.lblIsi.setText(mList.get(position).getIsi_laporan());
-        holder.lblTanggal.setText(mList.get(position).getTanggal_laporan());
 
-        if (mList.get(position).getFoto().equals("")){
+        holder.lblIsi.setText(mList.get(position).getLaporan());
+        holder.lblTanggal.setText(mList.get(position).getTanggal());
+        if (mList.get(position).getGambar().equals("")){
             holder.img.setVisibility(View.GONE);
             holder.rldefauld.setVisibility(View.GONE);
         }else {
-            holder.img.setVisibility(View.VISIBLE);
-//            Picasso.with(context)
-//                    .load(Utilities.getBaseURLImageLaporan() + mList.get(position).getFoto())
-//                    .fit()
-//                    .centerCrop()
-//                    .into(holder.img);
+            Picasso.with(context)
+                    .load(Utilities.getURLImage() + mList.get(position).getGambar())
+                    .fit()
+                    .centerCrop()
+                    .into(holder.img);
         }
 
-        switch (mList.get(position).getStatus_tanggapan()) {
+        switch (mList.get(position).getStatus()) {
             case "0":
                 holder.ll.setBackgroundResource(R.color.colorYellow);
                 break;
             case "1":
                 holder.ll.setBackgroundResource(R.color.colorGreen);
                 break;
-            case "2":
-                holder.ll.setBackgroundResource(R.color.colorRed);
-                break;
         }
-
-//        holder.lblJudul.setText(mList.get(position).getTblinbox_subyek());
-//        holder.lblIsi.setText(mList.get(position).getTblinbox_isi());
-//        holder.lblTanggal.setText(mList.get(position).getTblinbox_tanggal());
-//
-//        if (mList.get(position).getTblinbox_datapendukung().equals("")) {
-//            holder.img.setVisibility(View.GONE);
-//            holder.rldefauld.setVisibility(View.GONE);
-//        } else {
-//            holder.img.setVisibility(View.VISIBLE);
-//            Picasso.with(context)
-//                    .load(Utilities.getBaseURLImageLaporanspik() + mList.get(position).getTblinbox_datapendukung())
-//                    .fit()
-//                    .centerCrop()
-//                    .into(holder.img);
-//        }
-//
-//        if (mList.get(position).getTblinbox_isverifikasi().equals("T")) {
-//            holder.ll.setBackgroundResource(R.color.colorYellow);
-//            holder.lblJudul.setTextColor(Color.WHITE);
-//            holder.lblIsi.setTextColor(Color.WHITE);
-//            holder.lblTanggal.setTextColor(Color.WHITE);
-//        }
-//        if (mList.get(position).getTblinbox_istanggapi().equals("T")) {
-//            holder.ll.setBackgroundResource(R.color.colorBlue);
-//            holder.lblJudul.setTextColor(Color.WHITE);
-//            holder.lblIsi.setTextColor(Color.WHITE);
-//            holder.lblTanggal.setTextColor(Color.WHITE);
-//        }
-//        if (mList.get(position).getTblinbox_isdisposisi().equals("T")) {
-//            holder.ll.setBackgroundResource(R.color.colorGreen);
-//            holder.lblJudul.setTextColor(Color.WHITE);
-//            holder.lblIsi.setTextColor(Color.WHITE);
-//            holder.lblTanggal.setTextColor(Color.WHITE);
-//        }
     }
 
     @Override
@@ -121,7 +82,6 @@ public class LaporanViewAdapter extends RecyclerView.Adapter<LaporanViewAdapter.
             super(itemView);
             img = itemView.findViewById(R.id.img);
             rldefauld = itemView.findViewById(R.id.rldefauld);
-            lblJudul = itemView.findViewById(R.id.tvJudul);
             lblIsi = itemView.findViewById(R.id.tvIsi);
             lblTanggal = itemView.findViewById(R.id.tvTgl);
             ll = itemView.findViewById(R.id.ll);

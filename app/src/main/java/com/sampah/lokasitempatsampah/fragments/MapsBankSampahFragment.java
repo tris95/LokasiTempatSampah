@@ -98,274 +98,67 @@ public class MapsBankSampahFragment extends Fragment {
         return v;
     }
 
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        mapView.onResume();
-//    }
-//
-//    @Override
-//    public void onPause() {
-//        super.onPause();
-//        mapView.onPause();
-//    }
-//
-//    @Override
-//    public void onDestroy() {
-//        super.onDestroy();
-//        mapView.onDestroy();
-//    }
-//
-//    @Override
-//    public void onLowMemory() {
-//        super.onLowMemory();
-//        mapView.onLowMemory();
-//    }
-
-//    @Override
-//    public void onAttach(Context context) {
-//        super.onAttach(context);
-//    }
-//
-//    @Override
-//    public void onDetach() {
-//        super.onDetach();
-//    }
-
     private void lokasibanksampah() {
-//        final ProgressDialog pDialog = new ProgressDialog(getActivity());
-//        pDialog.setMessage("Loading...");
-//        pDialog.setIndeterminate(false);
-//        pDialog.setCancelable(false);
-//        pDialog.show();
-//
-//        String random = Utilities.getRandom(5);
-//
-//        OkHttpClient okHttpClient = Utilities.getUnsafeOkHttpClient();
+        final ProgressDialog pDialog = new ProgressDialog(getActivity());
+        pDialog.setMessage("Loading...");
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(false);
+        pDialog.show();
 
-//        Retrofit retrofit = new Retrofit.Builder()
-//                .baseUrl(Utilities.getBaseURLUser())
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .client(okHttpClient)
-//                .build();
-//
-//        APIServices api = retrofit.create(APIServices.class);
-//        Call<Value<BankSampah>> call = api.getbanksampah(random);
-//        call.enqueue(new Callback<Value<BankSampah>>() {
-//            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-//            @Override
-//            public void onResponse(@NonNull Call<Value<BankSampah>> call, @NonNull Response<Value<BankSampah>> response) {
-//                pDialog.dismiss();
-//                if (response.body() != null) {
-//                    int success = Objects.requireNonNull(response.body()).getSuccess();
-//                    if (success == 1) {
-//                        ArrayList<BankSampah> mListBankSampah = (ArrayList<BankSampah>) Objects.requireNonNull(response.body()).getData();
-//
-//                        lat = mListBankSampah.get(0).getLat();
-//                        lng = mListBankSampah.get(0).getLng();
-//                        namaLokasi = mListBankSampah.get(0).getNama_bank_sampah();
+        String random = Utilities.getRandom(5);
 
-                        mapView.getMapAsync(new OnMapReadyCallback() {
-                            @Override
-                            public void onMapReady(GoogleMap googleMap) {
-                                gMap = googleMap;
-                                if (gMap != null) gMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+        OkHttpClient okHttpClient = Utilities.getUnsafeOkHttpClient();
 
-//                if (ContextCompat.checkSelfPermission(getActivity(),
-//                        android.Manifest.permission.ACCESS_FINE_LOCATION)
-//                        != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(Objects.requireNonNull(getContext()),
-//                        android.Manifest.permission.ACCESS_COARSE_LOCATION)
-//                        != PackageManager.PERMISSION_GRANTED) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Utilities.getBaseURLUser())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(okHttpClient)
+                .build();
 
+        APIServices api = retrofit.create(APIServices.class);
+        Call<Value<BankSampah>> call = api.getbanksampah(random);
+        call.enqueue(new Callback<Value<BankSampah>>() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+            @Override
+            public void onResponse(@NonNull Call<Value<BankSampah>> call, @NonNull Response<Value<BankSampah>> response) {
+                pDialog.dismiss();
+                if (response.body() != null) {
+                    int success = Objects.requireNonNull(response.body()).getSuccess();
+                    if (success == 1) {
+                        final ArrayList<BankSampah> mListBankSampah = (ArrayList<BankSampah>) Objects.requireNonNull(response.body()).getData();
 
-//                    requestPermissions(new String[]{
-//                            android.Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-//                } else {
-//                    mFusedLocationClient.getLastLocation()
-//                            .addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
-//                                @Override
-//                                public void onSuccess(Location location) {
-//                                    if (location != null) {
-//                                        currentLatLng = new LatLng(location.getLatitude(), location.getLongitude());
-//                                        gMap.addMarker(new MarkerOptions().position(currentLatLng).title("Saya"));
-//
-//                                    gMap.animateCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition.Builder().target(currentLatLng).zoom(15).build()));
-//                                    gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 12));
-
-                                //LatLng destlatLng = new LatLng(Double.parseDouble(lat), Double.parseDouble(lng));
-                                LatLng destlatLng = new LatLng(-3.3571023,104.3231384);
-                                gMap.addMarker(new MarkerOptions().position(destlatLng).title("Bank Sampah KI")).showInfoWindow();
-                                gMap.animateCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition.Builder().target(destlatLng).zoom(15).build()));
-
-//                                    if (currentLatLng != null && destlatLng != null) {
-//                                        String url = getUrl(currentLatLng, destlatLng);
-//                                        DownloadTask FetchUrl = new DownloadTask();
-//                                        FetchUrl.execute(url);
-//                                    }
-//                                    } else {
-////                                        Snackbar.make(Objects.requireNonNull(getActivity()).findViewById(android.R.id.content), "Silakan hidupkan GPS Anda",
-////                                                Snackbar.LENGTH_LONG).show();
-//
-//                                        LatLng destlatLng = new LatLng(Double.parseDouble(lat), Double.parseDouble(lng));
-//                                        gMap.addMarker(new MarkerOptions().position(destlatLng).title(namaLokasi)).showInfoWindow();
-//                                        gMap.animateCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition.Builder().target(destlatLng).zoom(15).build()));
-//                                    }
-//                                }
-//                            });
-//                }
-                            }
-                        });
-//                    } else {
-////                        rl_none.setVisibility(View.GONE);
-//                        Snackbar.make(Objects.requireNonNull(getActivity()).findViewById(android.R.id.content), "Gagal mengambil data. Silahkan coba lagi",
-//                                Snackbar.LENGTH_LONG).show();
-//                    }
-//                } else {
-////                    rl_none.setVisibility(View.GONE);
-//                    Snackbar.make(Objects.requireNonNull(getActivity()).findViewById(android.R.id.content), "Gagal mengambil data. Silahkan coba lagi",
-//                            Snackbar.LENGTH_LONG).show();
-//                }
-//            }
-//
-//            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-//            @Override
-//            public void onFailure(@NonNull Call<Value<BankSampah>> call, @NonNull Throwable t) {
-//                System.out.println("Retrofit Error:" + t.getMessage());
-//                pDialog.dismiss();
-////                rl_none.setVisibility(View.GONE);
-//                Snackbar.make(Objects.requireNonNull(getActivity()).findViewById(android.R.id.content), "Tidak terhubung ke Internet",
-//                        Snackbar.LENGTH_LONG).show();
-//            }
-//        });
-    }
-
-    private String getUrl(LatLng origin, LatLng dest) {
-        // Origin of route
-        String str_origin = "origin=" + origin.latitude + "," + origin.longitude;
-        // Destination of route
-        String str_dest = "destination=" + dest.latitude + "," + dest.longitude;
-        // Sensor enabled
-        String sensor = "sensor=false";
-        // Building the parameters to the web service
-        String parameters = str_origin + "&" + str_dest + "&" + sensor;
-        // Output format
-        String output = "json";
-        // Building the url to the web service
-        String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters;
-
-        return url;
-    }
-
-    private class DownloadTask extends AsyncTask<String, Void, String> {
-
-        @Override
-        protected String doInBackground(String... url) {
-
-            String data = "";
-
-            try {
-                data = downloadUrl(url[0]);
-            } catch (Exception e) {
-                Log.d("Background Task", e.toString());
-            }
-            return data;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-            ParserTask parserTask = new ParserTask();
-            parserTask.execute(result);
-        }
-    }
-
-    private String downloadUrl(String strUrl) throws IOException {
-        String data = "";
-        InputStream iStream = null;
-        HttpURLConnection urlConnection = null;
-        try {
-            URL url = new URL(strUrl);
-
-            urlConnection = (HttpURLConnection) url.openConnection();
-
-            urlConnection.connect();
-
-            iStream = urlConnection.getInputStream();
-
-            BufferedReader br = new BufferedReader(new InputStreamReader(iStream));
-
-            StringBuffer sb = new StringBuffer();
-
-            String line = "";
-            while ((line = br.readLine()) != null) {
-                sb.append(line);
-            }
-
-            data = sb.toString();
-
-            br.close();
-
-        } catch (Exception e) {
-            Log.d("Exception", e.toString());
-        } finally {
-            iStream.close();
-            urlConnection.disconnect();
-        }
-        return data;
-    }
-
-    private class ParserTask extends AsyncTask<String, Integer, List<List<HashMap<String, String>>>> {
-        @Override
-        protected List<List<HashMap<String, String>>> doInBackground(String... jsonData) {
-
-            JSONObject jObject;
-            List<List<HashMap<String, String>>> routes = null;
-
-            try {
-                jObject = new JSONObject(jsonData[0]);
-                DirectionsJSONParser parser = new DirectionsJSONParser();
-
-                routes = parser.parse(jObject);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return routes;
-        }
-
-        @Override
-        protected void onPostExecute(List<List<HashMap<String, String>>> result) {
-            ArrayList points = null;
-            PolylineOptions lineOptions = null;
-//            MarkerOptions markerOptions = new MarkerOptions();
-
-            for (int i = 0; i < result.size(); i++) {
-                points = new ArrayList();
-                lineOptions = new PolylineOptions();
-
-                List<HashMap<String, String>> path = result.get(i);
-
-                for (int j = 0; j < path.size(); j++) {
-                    HashMap<String, String> point = path.get(j);
-
-                    double lat = Double.parseDouble(point.get("lat"));
-                    double lng = Double.parseDouble(point.get("lng"));
-                    LatLng position = new LatLng(lat, lng);
-
-                    points.add(position);
+                            mapView.getMapAsync(new OnMapReadyCallback() {
+                                @Override
+                                public void onMapReady(GoogleMap googleMap) {
+                                    gMap = googleMap;
+                                    for (int i = 0; i < mListBankSampah.size(); i++) {
+                                        lat = mListBankSampah.get(i).getLatitude();
+                                        lng = mListBankSampah.get(i).getLongitude();
+                                        namaLokasi = mListBankSampah.get(i).getNama_lokasi();
+                                        LatLng destlatLng = new LatLng(Double.valueOf(lat), Double.valueOf(lng));
+                                        gMap.addMarker(new MarkerOptions().position(destlatLng).title(namaLokasi));
+                                        gMap.animateCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition.Builder().target(destlatLng).zoom(15).build()));
+                                    }
+                                }
+                            });
+                    } else {
+                        Snackbar.make(Objects.requireNonNull(getActivity()).findViewById(android.R.id.content), "Gagal mengambil data. Silahkan coba lagi",
+                                Snackbar.LENGTH_LONG).show();
+                    }
+                } else {
+                    Snackbar.make(Objects.requireNonNull(getActivity()).findViewById(android.R.id.content), "Gagal mengambil data. Silahkan coba lagi",
+                            Snackbar.LENGTH_LONG).show();
                 }
-
-                lineOptions.addAll(points);
-                lineOptions.width(12);
-                lineOptions.color(Color.BLUE);
-                lineOptions.geodesic(true);
-
             }
 
-            try {
-                gMap.addPolyline(lineOptions);
-            } catch (Exception e) {
-                Log.e("polyline", e.toString());
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+            @Override
+            public void onFailure(@NonNull Call<Value<BankSampah>> call, @NonNull Throwable t) {
+                System.out.println("Retrofit Error:" + t.getMessage());
+                pDialog.dismiss();
+                Snackbar.make(Objects.requireNonNull(getActivity()).findViewById(android.R.id.content), "Tidak terhubung ke Internet",
+                        Snackbar.LENGTH_LONG).show();
             }
-        }
+        });
     }
 }

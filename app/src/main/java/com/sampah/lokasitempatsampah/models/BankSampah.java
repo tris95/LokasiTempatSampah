@@ -1,62 +1,53 @@
 package com.sampah.lokasitempatsampah.models;
 
 public class BankSampah {
-    private String id_bank_sampah, nama_bank_sampah, lokasi, lat, lng, nohp;
+    private String id, nama_lokasi, latitude, longitude, alamat;
 
-    public BankSampah(String id_bank_sampah, String nama_bank_sampah, String lokasi, String lat, String lng, String nohp) {
-        this.id_bank_sampah = id_bank_sampah;
-        this.nama_bank_sampah = nama_bank_sampah;
-        this.lokasi = lokasi;
-        this.lat = lat;
-        this.lng = lng;
-        this.nohp = nohp;
+    public BankSampah(String id, String nama_lokasi, String latitude, String longitude, String alamat) {
+        this.id = id;
+        this.nama_lokasi = nama_lokasi;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.alamat = alamat;
     }
 
-    public String getId_bank_sampah() {
-        return id_bank_sampah;
+    public String getId() {
+        return id;
     }
 
-    public void setId_bank_sampah(String id_bank_sampah) {
-        this.id_bank_sampah = id_bank_sampah;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getNama_bank_sampah() {
-        return nama_bank_sampah;
+    public String getNama_lokasi() {
+        return nama_lokasi;
     }
 
-    public void setNama_bank_sampah(String nama_bank_sampah) {
-        this.nama_bank_sampah = nama_bank_sampah;
+    public void setNama_lokasi(String nama_lokasi) {
+        this.nama_lokasi = nama_lokasi;
     }
 
-    public String getLokasi() {
-        return lokasi;
+    public String getLatitude() {
+        return latitude;
     }
 
-    public void setLokasi(String lokasi) {
-        this.lokasi = lokasi;
+    public void setLatitude(String latiitude) {
+        this.latitude = latiitude;
     }
 
-    public String getLat() {
-        return lat;
+    public String getLongitude() {
+        return longitude;
     }
 
-    public void setLat(String lat) {
-        this.lat = lat;
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 
-    public String getLng() {
-        return lng;
+    public String getAlamat() {
+        return alamat;
     }
 
-    public void setLng(String lng) {
-        this.lng = lng;
-    }
-
-    public String getNohp() {
-        return nohp;
-    }
-
-    public void setNohp(String nohp) {
-        this.nohp = nohp;
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
     }
 }

@@ -40,11 +40,20 @@
                 android:id="@+id/editText4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="No. HP(8xxxxxxxxx)"
+                android:text="0812"
                 android:inputType="phone"
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
                 android:textSize="14sp" />
+            <!--<EditText-->
+                <!--android:id="@+id/editText4"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:hint="No. HP(8xxxxxxxxx)"-->
+                <!--android:inputType="phone"-->
+                <!--android:layout_marginStart="10dp"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:textSize="14sp" />-->
         </LinearLayout>
 
         <LinearLayout

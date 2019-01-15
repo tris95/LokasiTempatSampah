@@ -65,7 +65,6 @@ public class SignUpActivity extends AppCompatActivity {
         llMasuk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
                 finish();
             }
         });
@@ -204,13 +203,11 @@ public class SignUpActivity extends AppCompatActivity {
                         new Timer().schedule(new TimerTask() {
                             @Override
                             public void run() {
-                                Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
-                                startActivity(intent);
                                 finish();
                             }
                         }, 500);
                     } else if (success == 2) {
-                        Snackbar.make(Objects.requireNonNull(findViewById(android.R.id.content)).findViewById(android.R.id.content), "Alamat email sudah terdaftar. Silakan masuk aplikasi",
+                        Snackbar.make(Objects.requireNonNull(findViewById(android.R.id.content)).findViewById(android.R.id.content), "Nomor HP sudah terdaftar. Silakan masuk aplikasi",
                                 Snackbar.LENGTH_LONG).show();
                     } else {
                         Snackbar.make(Objects.requireNonNull(findViewById(android.R.id.content)).findViewById(android.R.id.content), "Gagal menyimpan data. Silakan coba lagi",
