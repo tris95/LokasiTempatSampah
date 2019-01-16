@@ -48,7 +48,7 @@ public class Utilities {
     }
 
     public static String getURLImage() {
-        return server + "android/gambar_laporan/";
+        return server + "android/gambar_laporanip/";
     }
 
     public static boolean isNetworkAvailable(Context context) {

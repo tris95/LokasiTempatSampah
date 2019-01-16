@@ -1,14 +1,17 @@
 package com.sampah.lokasitempatsampah.fragments;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.hardware.Camera;
+import android.location.Location;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,7 +21,9 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +31,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.sampah.lokasitempatsampah.R;
 import com.sampah.lokasitempatsampah.activities.SignUpActivity;
 import com.sampah.lokasitempatsampah.models.ValueAdd;
@@ -56,6 +65,7 @@ public class KirimLaporanFragment extends Fragment {
     EditText txtket;
     String latitude, longitude, gambar;
     private static final int CAMERA_REQUEST = 188, FILE_REQUES = 189;
+    FusedLocationProviderClient mFusedLocationClient;
 
     public KirimLaporanFragment() {
     }
@@ -69,6 +79,7 @@ public class KirimLaporanFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -78,8 +89,30 @@ public class KirimLaporanFragment extends Fragment {
         imgLaporan = view.findViewById(R.id.imgLaporan);
         txtket = view.findViewById(R.id.txtket);
 
-        latitude = "12";
-        longitude = "123";
+        if (((AppCompatActivity) getActivity()).getSupportActionBar() != null) {
+            Objects.requireNonNull(((AppCompatActivity) getActivity()).getSupportActionBar()).setTitle("Kirim Laporan");
+        }
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(getActivity());
+
+        if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(getActivity(), new String[]{
+                    android.Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+        }
+        mFusedLocationClient.getLastLocation()
+                .addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
+                    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+                    @Override
+                    public void onSuccess(Location location) {
+                        if (location != null) {
+                            latitude=String.valueOf(location.getLatitude());
+                            longitude=String.valueOf(location.getLongitude());
+
+                        } else {
+                            Snackbar.make(Objects.requireNonNull(getActivity()).findViewById(android.R.id.content), "Lokasi tidak terdeteksi",
+                                    Snackbar.LENGTH_LONG).show();
+                        }
+                    }
+                });
         btnKirim.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Lokasi Tempat Sampah</string>
+    <string name="app_name">Lokasi TPS</string>
     <string name="dinas">DINAS LINGKUNGAN HIDUP DAN KEBERSIHAN</string>
     <string name="kabkot">KOTA PALEMBANG</string>
     <string name="title_activity_maps">Maps</string>
