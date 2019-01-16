@@ -86,6 +86,7 @@ public class DaftarLaporanFragment extends Fragment {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onRefresh() {
+                swipeRefreshLayout.setRefreshing(false);
                 getLaporan();
             }
         });

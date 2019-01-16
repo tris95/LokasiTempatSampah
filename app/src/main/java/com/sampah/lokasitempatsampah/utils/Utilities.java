@@ -40,15 +40,15 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Utilities {
-    //    private static String server = "http://www.freshyummy.co.id/sampah/";
-    private static String server = "http://10.10.29.214/websampah/";
+    private static String server = "http://www.freshyummy.co.id/lokasitps/";
+    //private static String server = "http://10.10.29.214/websampah/";
 
     public static String getBaseURLUser() {
         return server + "android/";
     }
 
     public static String getURLImage() {
-        return server + "android/gambar_laporanip/";
+        return server + "android/gambar_laporan/";
     }
 
     public static boolean isNetworkAvailable(Context context) {
